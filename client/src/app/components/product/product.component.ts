@@ -1,5 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-product',
@@ -19,7 +20,7 @@ export class ProductComponent implements OnInit {
 
   //#region ng life cycle
   ngOnInit(): void {
-    this.route.params.subscribe({
+    this.route.params.pipe(take(1)).subscribe({
       next: (params) => {
         this.productId = params['id'];
       }
