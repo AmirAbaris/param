@@ -12,13 +12,13 @@ import { Chance } from 'chance';
 export class HomeComponent implements OnInit {
   private router = inject(Router);
 
-  randomId: number | undefined;
+  randomId: string | undefined;
 
   ngOnInit(): void {
     // generate random id
     let chance = new Chance();
 
-    this.randomId = chance.integer();
+    this.randomId = chance.string();
   }
 
   goToRandomProduct(): void {
